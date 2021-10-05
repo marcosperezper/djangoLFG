@@ -29,7 +29,7 @@ class Party(models.Model):
     videogame = models.ForeignKey(
         Videogame,
         on_delete=models.CASCADE,
-        related_name='parties'
+        related_name='parties',
     )
     creator = models.ForeignKey(Gamer,
                                 on_delete=models.CASCADE,
@@ -43,7 +43,6 @@ class Party(models.Model):
 class Message(models.Model):
     id = models.AutoField(primary_key=True)
     text = models.CharField(max_length=400, null=True)
-    active = models.BooleanField(default=True)
     writer = models.ForeignKey(Gamer,
                                on_delete=models.CASCADE,
                                related_name='messages'
@@ -52,7 +51,7 @@ class Message(models.Model):
                               on_delete=models.CASCADE,
                               related_name='party_messages'
                               )
-    created = models.DateTimeField(null=True)
+    created_at = models.DateTimeField(null=True)
 
     def save(self, *args, **kwargs):
         """
