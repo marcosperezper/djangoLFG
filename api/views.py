@@ -58,3 +58,10 @@ class MessageListView(generics.ListCreateAPIView):
         party_id = self.kwargs['party_id']
         party = Party.objects.get(pk=party_id)
         serializer.save(writer=self.request.user, party=party)
+
+
+class GamerDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Gamer.objects.all()
+    serializer_class = GamerSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    lookup_field = "username"

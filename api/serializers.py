@@ -7,12 +7,12 @@ class VidegoameSerializer(serializers.ModelSerializer):
         model = Videogame
         fields = "__all__"
         lookup_field = "title"
-        # extra_kwargs = {"url": {"lookup_field": "title"}}
 
 
 class GamerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gamer
+        lookup_field = "username"
         exclude = (
             'groups',
             'last_login',
