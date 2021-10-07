@@ -66,7 +66,7 @@ class PartyAdmin(admin.ModelAdmin):
 
 
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ("id", "writer", "created")
+    list_display = ("id", "writer", "sent_at")
 
 
 admin.site.register(Gamer, GamerAdmin)
