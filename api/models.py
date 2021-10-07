@@ -51,7 +51,7 @@ class Message(models.Model):
                               on_delete=models.CASCADE,
                               related_name='party_messages'
                               )
-    created_at = models.DateTimeField(null=True)
+    sent_at = models.DateTimeField(null=True)
 
     def save(self, *args, **kwargs):
         """

@@ -6,6 +6,8 @@ class VidegoameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Videogame
         fields = "__all__"
+        lookup_field = "title"
+        # extra_kwargs = {"url": {"lookup_field": "title"}}
 
 
 class GamerSerializer(serializers.ModelSerializer):
@@ -36,13 +38,7 @@ class PartySerializer(serializers.ModelSerializer):
 
 class MessageSerializer(serializers.ModelSerializer):
     writer = serializers.ReadOnlyField(source='writer.username')
-    party = serializers.ReadOnlyField(source='party.name')
 
     class Meta:
         model = Message
-        fields = ('id',
-                  'text',
-                  'writer',
-                  'party',
-                  'created_at'
-                  )
+        exclude = ('party',)
