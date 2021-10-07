@@ -4,9 +4,7 @@ from .views import VideogameViewSet, GamerViewSet, PartyViewSet, MessageViewSet,
 
 router = routers.DefaultRouter()
 router.register(r'videogames', VideogameViewSet, basename="videogames")
-# router.register(r'gamers', GamerViewSet, basename="gamers")
 router.register(r'parties', PartyViewSet, basename="parties")
-router.register(r'messages', MessageViewSet, basename="messages")
 
 urlpatterns = [
     path('', include(router.urls)),
