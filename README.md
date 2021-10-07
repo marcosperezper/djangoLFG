@@ -1,5 +1,4 @@
-#LFG API(WIP)
-
+# LFG API
 ## Description
 A project based on an API with the purpose to search a party to play videogames.
 People who like videogames can find a party to play their favorite games with people, 
